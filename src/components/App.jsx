@@ -5,6 +5,7 @@ const yaml = require('js-yaml');
 import React from 'react';
 import Button from './Button.jsx';
 import FilterBox from './FilterBox.jsx';
+import Loader from './Loader.jsx';
 import Song from './Song.jsx';
 
 class App extends React.Component {
@@ -30,6 +31,7 @@ class App extends React.Component {
   _onBackClick() {
     this.setState({
       selectedSong: null,
+      filterText: '',
     });
   }
 
@@ -46,6 +48,10 @@ class App extends React.Component {
   }
 
   loadData() {
+    this.setState({
+      loading: true,
+    });
+
     const request = new XMLHttpRequest();
     request.addEventListener('load', this.parseData.bind(this, request));
     request.open('GET', '/data.yml');
@@ -54,6 +60,7 @@ class App extends React.Component {
 
   parseData(request) {
     this.setState({
+      loading: false,
       songs: yaml.safeLoad(request.responseText).sort((a, b) => {
         if (a.title.toLowerCase() < b.title.toLowerCase()) return -1;
         if (a.title.toLowerCase() > b.title.toLowerCase()) return 1;
@@ -63,6 +70,12 @@ class App extends React.Component {
   }
 
   render() {
+    if (this.state.loading) {
+      return (
+        <Loader />
+      );
+    }
+
     const filterBox = this.state.selectedSong ? null : (
       <FilterBox onChange={this._onFilterChange} />
     );
