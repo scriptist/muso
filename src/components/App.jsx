@@ -3,8 +3,8 @@ require('styles/App.scss');
 const yaml = require('js-yaml');
 
 import React from 'react';
-import FilterBox from './FilterBox.js';
-import Song from './Song.js';
+import FilterBox from './FilterBox.jsx';
+import Song from './Song.jsx';
 
 class App extends React.Component {
   constructor(props) {
