@@ -3,20 +3,46 @@ require('styles/App.scss');
 const yaml = require('js-yaml');
 
 import React from 'react';
+import Button from './Button.jsx';
 import FilterBox from './FilterBox.jsx';
 import Song from './Song.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       loading: true,
       songs: [],
+      filterText: '',
+      selectedSong: null,
     };
+
+    this._onFilterChange = this._onFilterChange.bind(this);
+    this._onSongClick = this._onSongClick.bind(this);
+    this._onBackClick = this._onBackClick.bind(this);
   }
 
   componentWillMount() {
     this.loadData();
+  }
+
+  _onBackClick() {
+    this.setState({
+      selectedSong: null,
+    });
+  }
+
+  _onFilterChange(text) {
+    this.setState({
+      filterText: text,
+    });
+  }
+
+  _onSongClick(slug) {
+    this.setState({
+      selectedSong: slug,
+    });
   }
 
   loadData() {
@@ -37,11 +63,34 @@ class App extends React.Component {
   }
 
   render() {
+    const filterBox = this.state.selectedSong ? null : (
+      <FilterBox onChange={this._onFilterChange} />
+    );
+
+    const back = this.state.selectedSong ? (
+      <Button onClick={this._onBackClick}>Back</Button>
+    ) : null;
+
+    const filteredSongs = this.state.songs.filter((song) => {
+      if (this.state.selectedSong) {
+        return this.state.selectedSong === song.slug;
+      }
+
+      const filterText = this.state.filterText.toLowerCase().trim();
+      return song.title.toLowerCase().indexOf(filterText) !== -1;
+    });
+
     return (
       <div className="index">
-        <FilterBox />
-        {this.state.songs.map((song) => (
-          <Song key={song.title} {...song} />
+        {filterBox}
+        {back}
+        {filteredSongs.map((song) => (
+          <Song
+            key={song.title}
+            onClick={this._onSongClick}
+            expanded={!!this.state.selectedSong}
+            {...song}
+          />
         ))}
       </div>
     );
