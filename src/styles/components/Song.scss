@@ -63,20 +63,26 @@
   }
 
   .song__pdf {
-    margin-top: $gutter / 2;
-    text-align: center;
+    iframe {
+      height: calc(100vh - 100px);
+      width: 100%;
+    }
   }
 
   .song__chords {
-    margin: 0;
+    font-size: $font-size-large;
     line-height: 1.4;
+    margin: 0;
     padding: $gutter / 2;
     white-space: pre-wrap;
 
     .song__chords__line {
+      min-height: 1em;
+
       &.song__chords__line--chords {
         color: #c33;
-        margin-top: 1em;
+        line-height: 1;
+        margin-top: 0.4em;
       }
     }
   }

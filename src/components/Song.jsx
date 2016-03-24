@@ -1,5 +1,4 @@
 import React from 'react';
-import PDF from 'react-pdf';
 
 import BackButton from './BackButton.jsx';
 
@@ -55,15 +54,7 @@ class Song extends React.Component {
     if (this.props.pdf) {
       return (
         <div className="song__pdf">
-          {this.state.pdfPages.map((x) =>
-            <PDF
-              key={x}
-              className="pdf"
-              file={this.props.pdf}
-              page={x}
-              onDocumentComplete={this._onDocumentComplete}
-            />
-          )}
+          <iframe src={`https://docs.google.com/gview?url=http://muso.mikeyberman.com/sheets/${this.props.pdf}&embedded=true`} frameBorder="0" />
         </div>
       );
     }

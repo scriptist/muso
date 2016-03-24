@@ -65,7 +65,7 @@ class App extends React.Component {
   }
 
   loadData(reloadCb) {
-    if (reloadCb) {
+    if (!reloadCb) {
       this.setState({
         loading: true,
       });
