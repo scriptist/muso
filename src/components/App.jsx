@@ -13,7 +13,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      loading: true,
+      loading: false,
       songs: [],
       filterText: '',
       selectedSong: null,
@@ -35,6 +35,9 @@ class App extends React.Component {
     this.setState(state);
 
     const newState = Object.assign({}, this.state, state);
+    delete newState.filterText;
+    delete newState.loading;
+
     localStorage.setItem('muso-state', JSON.stringify(newState));
   }
 
@@ -61,15 +64,17 @@ class App extends React.Component {
     });
   }
 
-  loadData(cb) {
-    this.setState({
-      loading: true,
-    });
+  loadData(reloadCb) {
+    if (reloadCb) {
+      this.setState({
+        loading: true,
+      });
+    }
 
     const request = new XMLHttpRequest();
     request.addEventListener('load', () => {
       this.parseData(request.responseText);
-      if (typeof cb === 'function') cb();
+      if (typeof reloadCb === 'function') reloadCb();
     });
     request.open('GET', '/data.yml');
     request.send();
@@ -77,12 +82,53 @@ class App extends React.Component {
 
   loadState() {
     try {
-      this.setState(JSON.parse(localStorage.getItem('muso-state')));
+      const state = JSON.parse(localStorage.getItem('muso-state'));
+      if (!state) {
+        return false;
+      }
+
+      this.setState(state);
     } catch (e) {
       return false;
     }
 
     return true;
+  }
+
+  filterSongs() {
+    const filterText = this.state.filterText.toLowerCase().trim();
+    const filterWords = filterText.split(' ');
+    const filterFields = ['title', 'artist', 'slug'];
+
+    const filteredSongs = this.state.songs.filter((song) => {
+      if (this.state.selectedSong) {
+        return this.state.selectedSong === song.slug;
+      }
+
+      if (filterText.length === 0) {
+        return true;
+      }
+
+      let wordsMatched = 0;
+      filterWords.forEach((word) => {
+        for (const field of filterFields) {
+          if (song[field].toLowerCase().indexOf(word) !== -1) {
+            return wordsMatched++;
+          }
+        }
+
+        return null;
+      });
+
+      return wordsMatched === filterWords.length;
+    });
+
+    if (this.state.selectedSong && filteredSongs.length === 0) {
+      this._onBackClick();
+      return this.state.songs;
+    }
+
+    return filteredSongs;
   }
 
   parseData(responseText) {
@@ -107,18 +153,7 @@ class App extends React.Component {
       <FilterBox onChange={this._onFilterChange} />
     );
 
-    const filteredSongs = this.state.songs.filter((song) => {
-      if (this.state.selectedSong) {
-        return this.state.selectedSong === song.slug;
-      }
-
-      const filterText = this.state.filterText.toLowerCase().trim();
-      return song.title.toLowerCase().indexOf(filterText) !== -1;
-    });
-
-    if (filteredSongs.length === 0) {
-      this._onBackClick();
-    }
+    const filteredSongs = this.filterSongs();
 
     return (
       <PullToRefresh className="index" onRefresh={this._onRefresh}>
