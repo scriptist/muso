@@ -1,7 +1,8 @@
 @import "../settings";
 
 .filterbox {
-  margin-bottom: $gutter;
+  margin: 0 auto $gutter;
+  max-width: $menu-width;
 
   .filterbox__input {
     background: url(/images/search.svg) 98% 50% no-repeat;

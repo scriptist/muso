@@ -1,11 +1,12 @@
 @import "../settings";
 
 .song {
-  margin-left: -$gutter / 2;
-  margin-right: -$gutter / 2;
+  margin-left: auto;
+  margin-right: auto;
 
   &:not(.song--expanded) {
     cursor: pointer;
+    max-width: $menu-width;
 
     &:hover {
       background: $color-gray-light;
