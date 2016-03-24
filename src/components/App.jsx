@@ -5,6 +5,7 @@ const yaml = require('js-yaml');
 import React from 'react';
 import FilterBox from './FilterBox.jsx';
 import Loader from './Loader.jsx';
+import PullToRefresh from './PullToRefresh.jsx';
 import Song from './Song.jsx';
 
 class App extends React.Component {
@@ -18,9 +19,10 @@ class App extends React.Component {
       selectedSong: null,
     };
 
-    this._onFilterChange = this._onFilterChange.bind(this);
-    this._onSongClick = this._onSongClick.bind(this);
     this._onBackClick = this._onBackClick.bind(this);
+    this._onFilterChange = this._onFilterChange.bind(this);
+    this._onRefresh = this._onRefresh.bind(this);
+    this._onSongClick = this._onSongClick.bind(this);
   }
 
   componentWillMount() {
@@ -37,7 +39,7 @@ class App extends React.Component {
   }
 
   _onBackClick() {
-    this.setState({
+    this.setStateAndSave({
       selectedSong: null,
       filterText: '',
     });
@@ -49,19 +51,26 @@ class App extends React.Component {
     });
   }
 
+  _onRefresh(resolve) {
+    this.loadData(resolve);
+  }
+
   _onSongClick(slug) {
     this.setStateAndSave({
       selectedSong: slug,
     });
   }
 
-  loadData() {
+  loadData(cb) {
     this.setState({
       loading: true,
     });
 
     const request = new XMLHttpRequest();
-    request.addEventListener('load', this.parseData.bind(this, request));
+    request.addEventListener('load', () => {
+      this.parseData(request.responseText);
+      if (typeof cb === 'function') cb();
+    });
     request.open('GET', '/data.yml');
     request.send();
   }
@@ -76,10 +85,10 @@ class App extends React.Component {
     return true;
   }
 
-  parseData(request) {
+  parseData(responseText) {
     this.setStateAndSave({
       loading: false,
-      songs: yaml.safeLoad(request.responseText).sort((a, b) => {
+      songs: yaml.safeLoad(responseText).sort((a, b) => {
         if (a.title.toLowerCase() < b.title.toLowerCase()) return -1;
         if (a.title.toLowerCase() > b.title.toLowerCase()) return 1;
         return 0;
@@ -107,8 +116,12 @@ class App extends React.Component {
       return song.title.toLowerCase().indexOf(filterText) !== -1;
     });
 
+    if (filteredSongs.length === 0) {
+      this._onBackClick();
+    }
+
     return (
-      <div className="index">
+      <PullToRefresh className="index" onRefresh={this._onRefresh}>
         {filterBox}
         {filteredSongs.map((song) => (
           <Song
@@ -119,7 +132,7 @@ class App extends React.Component {
             {...song}
           />
         ))}
-      </div>
+      </PullToRefresh>
     );
   }
 }
