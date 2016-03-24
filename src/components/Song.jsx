@@ -17,6 +17,19 @@ class Song extends React.Component {
     }
   }
 
+  testLine(line) {
+    if (line.match(/^\s/)) return true;
+    if (line.match(/^\|:/)) return true;
+    if (line.match(/^\| ?[A-G][b#]?[m]?[679]? /)) return true;
+
+    const chordRegex = new RegExp('([A-G][b#]?[m]?((6\\/9|11|13|[679]))?' +
+      '((dim|dom|aug|sus|min|maj|add|no|m|M|-|\\+)(11|13|15|[23456789])?){0,2}' +
+      '([b#\\-\\+][59]){0,2}(\\/[A-G][b#]?)?)(?=(\s|-|\/|\\\\|\\)|$))');
+    if (line.match(chordRegex)) return true;
+
+    return false;
+  }
+
   renderContent() {
     if (!this.props.expanded) {
       return null;
@@ -24,7 +37,18 @@ class Song extends React.Component {
 
     return (
       <pre className="song__chords">
-        {this.props.chords}
+        {this.props.chords.split('\n').map((line, i) => {
+          const className = `song__chords__line${
+            this.testLine(line)
+            ? ' song__chords__line--chords'
+            : ''}
+          `;
+          return (
+            <div key={`${i}:${line}`} className={className}>
+              {line}
+            </div>
+          );
+        })}
       </pre>
     );
   }
