@@ -1,5 +1,7 @@
 import React from 'react';
 
+import BackButton from './BackButton.jsx';
+
 require('styles/components/Song.scss');
 
 class Song extends React.Component {
@@ -10,7 +12,7 @@ class Song extends React.Component {
   }
 
   _onClick() {
-    if (this.props.onClick) {
+    if (!this.props.expanded && this.props.onClick) {
       this.props.onClick(this.props.slug);
     }
   }
@@ -21,18 +23,33 @@ class Song extends React.Component {
     }
 
     return (
-      <pre>
+      <pre className="song__chords">
         {this.props.chords}
       </pre>
     );
   }
 
   render() {
+    const back = this.props.expanded ? (
+      <BackButton className="song__header__backbutton" onClick={this.props.onBackClick} />
+    ) : null;
+    const className = `song${this.props.expanded ? ' song--expanded' : ''}`;
     return (
-      <div className="song" onClick={this._onClick}>
-        {this.props.title} - {this.props.artist}
+      <article className={className} onClick={this._onClick}>
+        <header className="song__header">
+          {back}
+          <h1 className="song__header__title">
+            {this.props.title}
+          </h1>
+          <div className="song__header__artist">
+            {this.props.artist}
+          </div>
+          <div className="song__header__label">
+            {this.props.chords ? 'Chords' : 'PDF'}
+          </div>
+        </header>
         {this.renderContent()}
-      </div>
+      </article>
     );
   }
 }
@@ -45,6 +62,7 @@ Song.propTypes = {
   pdf: React.PropTypes.string,
   expanded: React.PropTypes.bool,
   onClick: React.PropTypes.func,
+  onBackClick: React.PropTypes.func,
 };
 
 export default Song;

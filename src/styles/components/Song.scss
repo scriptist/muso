@@ -1,3 +1,67 @@
-.song-component {
-  border: 1px dashed #f00;
+@import "../settings";
+
+.song {
+  margin-left: -$gutter / 2;
+  margin-right: -$gutter / 2;
+
+  &:not(.song--expanded) {
+    cursor: pointer;
+
+    &:hover {
+      background: $color-gray-light;
+    }
+  }
+
+  &.song--expanded .song__header {
+    .song__header__title,
+    .song__header__artist {
+      margin-left: 30px;
+    }
+  }
+
+  .song__header {
+    border-bottom: 1px solid;
+    padding: $gutter / 2;
+    position: relative;
+
+    .song__header__backbutton {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .song__header__title,
+    .song__header__artist {
+      margin-right: 65px;
+    }
+
+    .song__header__title {
+      font-weight: inherit;
+      font-size: $font-size-large;
+      margin: 0 0 0.4em;
+    }
+
+    .song__header__artist {
+      font-size: $font-size-small;
+    }
+
+    .song__header__label {
+      border: 1px solid;
+      font-size: $font-size-tiny;
+      padding: 0.2em 0.3em;
+      text-transform: uppercase;
+
+      position: absolute;
+      right: $gutter / 2;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  .song__chords {
+    margin: 0;
+    padding: $gutter / 2;
+    white-space: pre-wrap;
+  }
 }

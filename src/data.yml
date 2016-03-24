@@ -2,7 +2,7 @@
   slug: not-perfect
   title: Not Perfect
   artist: Tim Minchin
-  chords: >
+  chords: |
     | A   | E         |
     |     |   This is |
 
@@ -190,7 +190,7 @@
   slug: dark-side
   title: Dark Side
   artist: Tim Minchin
-  chords: >
+  chords: |
     C#m
     I can have a dark side
     B              A

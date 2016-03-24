@@ -3,7 +3,6 @@ require('styles/App.scss');
 const yaml = require('js-yaml');
 
 import React from 'react';
-import Button from './Button.jsx';
 import FilterBox from './FilterBox.jsx';
 import Loader from './Loader.jsx';
 import Song from './Song.jsx';
@@ -25,7 +24,16 @@ class App extends React.Component {
   }
 
   componentWillMount() {
-    this.loadData();
+    if (!this.loadState()) {
+      this.loadData();
+    }
+  }
+
+  setStateAndSave(state) {
+    this.setState(state);
+
+    const newState = Object.assign({}, this.state, state);
+    localStorage.setItem('muso-state', JSON.stringify(newState));
   }
 
   _onBackClick() {
@@ -42,7 +50,7 @@ class App extends React.Component {
   }
 
   _onSongClick(slug) {
-    this.setState({
+    this.setStateAndSave({
       selectedSong: slug,
     });
   }
@@ -58,8 +66,18 @@ class App extends React.Component {
     request.send();
   }
 
+  loadState() {
+    try {
+      this.setState(JSON.parse(localStorage.getItem('muso-state')));
+    } catch (e) {
+      return false;
+    }
+
+    return true;
+  }
+
   parseData(request) {
-    this.setState({
+    this.setStateAndSave({
       loading: false,
       songs: yaml.safeLoad(request.responseText).sort((a, b) => {
         if (a.title.toLowerCase() < b.title.toLowerCase()) return -1;
@@ -80,10 +98,6 @@ class App extends React.Component {
       <FilterBox onChange={this._onFilterChange} />
     );
 
-    const back = this.state.selectedSong ? (
-      <Button onClick={this._onBackClick}>Back</Button>
-    ) : null;
-
     const filteredSongs = this.state.songs.filter((song) => {
       if (this.state.selectedSong) {
         return this.state.selectedSong === song.slug;
@@ -96,11 +110,11 @@ class App extends React.Component {
     return (
       <div className="index">
         {filterBox}
-        {back}
         {filteredSongs.map((song) => (
           <Song
-            key={song.title}
+            key={song.slug}
             onClick={this._onSongClick}
+            onBackClick={this._onBackClick}
             expanded={!!this.state.selectedSong}
             {...song}
           />

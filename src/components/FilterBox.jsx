@@ -28,7 +28,7 @@ class FilterBox extends React.Component {
   render() {
     return (
       <div className="filterbox">
-        <input type="search" onChange={this._onChange} />
+        <input type="search" className="filterbox__input" onChange={this._onChange} />
       </div>
     );
   }
