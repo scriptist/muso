@@ -1,4 +1,5 @@
 import React from 'react';
+import PDF from 'react-pdf';
 
 import BackButton from './BackButton.jsx';
 
@@ -8,13 +9,29 @@ class Song extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      pdfPages: [1],
+    };
+
     this._onClick = this._onClick.bind(this);
+    this._onDocumentComplete = this._onDocumentComplete.bind(this);
   }
 
   _onClick() {
     if (!this.props.expanded && this.props.onClick) {
       this.props.onClick(this.props.slug);
     }
+  }
+
+  _onDocumentComplete(pages) {
+    const pagesArr = [];
+    for (let i = 1; i < pages + 1; i++) {
+      pagesArr.push(i);
+    }
+
+    this.setState({
+      pdfPages: pagesArr,
+    });
   }
 
   testLine(line) {
@@ -33,6 +50,22 @@ class Song extends React.Component {
   renderContent() {
     if (!this.props.expanded) {
       return null;
+    }
+
+    if (this.props.pdf) {
+      return (
+        <div className="song__pdf">
+          {this.state.pdfPages.map((x) =>
+            <PDF
+              key={x}
+              className="pdf"
+              file={this.props.pdf}
+              page={x}
+              onDocumentComplete={this._onDocumentComplete}
+            />
+          )}
+        </div>
+      );
     }
 
     return (
