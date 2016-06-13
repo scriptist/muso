@@ -1,11 +1,11 @@
 require('normalize.css');
-require('styles/App.scss');
+require('../styles/App.scss');
 const yaml = require('js-yaml');
 
 import React from 'react';
 import FilterBox from './FilterBox.jsx';
 import Loader from './Loader.jsx';
-import PullToRefresh from './PullToRefresh.jsx';
+import RefreshButton from './RefreshButton.jsx';
 import Song from './Song.jsx';
 
 class App extends React.Component {
@@ -14,21 +14,45 @@ class App extends React.Component {
 
     this.state = {
       loading: false,
+      reloading: false,
       songs: [],
       filterText: '',
       selectedSong: null,
     };
 
-    this._onBackClick = this._onBackClick.bind(this);
-    this._onFilterChange = this._onFilterChange.bind(this);
-    this._onRefresh = this._onRefresh.bind(this);
-    this._onSongClick = this._onSongClick.bind(this);
+    this.onBackClick = this.onBackClick.bind(this);
+    this.onFilterChange = this.onFilterChange.bind(this);
+    this.onRefresh = this.onRefresh.bind(this);
+    this.onSongClick = this.onSongClick.bind(this);
   }
 
   componentWillMount() {
     if (!this.loadState()) {
       this.loadData();
     }
+  }
+
+  onBackClick() {
+    this.setStateAndSave({
+      selectedSong: null,
+      filterText: '',
+    });
+  }
+
+  onFilterChange(text) {
+    this.setState({
+      filterText: text,
+    });
+  }
+
+  onRefresh() {
+    this.loadData();
+  }
+
+  onSongClick(slug) {
+    this.setStateAndSave({
+      selectedSong: slug,
+    });
   }
 
   setStateAndSave(state) {
@@ -41,40 +65,14 @@ class App extends React.Component {
     localStorage.setItem('muso-state', JSON.stringify(newState));
   }
 
-  _onBackClick() {
-    this.setStateAndSave({
-      selectedSong: null,
-      filterText: '',
-    });
-  }
-
-  _onFilterChange(text) {
+  loadData() {
     this.setState({
-      filterText: text,
+      loading: true,
     });
-  }
-
-  _onRefresh(resolve) {
-    this.loadData(resolve);
-  }
-
-  _onSongClick(slug) {
-    this.setStateAndSave({
-      selectedSong: slug,
-    });
-  }
-
-  loadData(reloadCb) {
-    if (!reloadCb) {
-      this.setState({
-        loading: true,
-      });
-    }
 
     const request = new XMLHttpRequest();
     request.addEventListener('load', () => {
       this.parseData(request.responseText);
-      if (typeof reloadCb === 'function') reloadCb();
     });
     request.open('GET', '/data.yml');
     request.send();
@@ -124,7 +122,7 @@ class App extends React.Component {
     });
 
     if (this.state.selectedSong && filteredSongs.length === 0) {
-      this._onBackClick();
+      this.onBackClick();
       return this.state.songs;
     }
 
@@ -150,24 +148,27 @@ class App extends React.Component {
     }
 
     const filterBox = this.state.selectedSong ? null : (
-      <FilterBox onChange={this._onFilterChange} />
+      <FilterBox onChange={this.onFilterChange} />
     );
 
     const filteredSongs = this.filterSongs();
 
     return (
-      <PullToRefresh className="index" onRefresh={this._onRefresh}>
+      <div>
         {filterBox}
         {filteredSongs.map((song) => (
           <Song
             key={song.slug}
-            onClick={this._onSongClick}
-            onBackClick={this._onBackClick}
+            onClick={this.onSongClick}
+            onBackClick={this.onBackClick}
             expanded={!!this.state.selectedSong}
             {...song}
           />
         ))}
-      </PullToRefresh>
+        {this.state.selectedSong ? null : (
+          <RefreshButton onClick={this.onRefresh} />
+        )}
+      </div>
     );
   }
 }

@@ -2,7 +2,7 @@ import React from 'react';
 
 import BackButton from './BackButton.jsx';
 
-require('styles/components/Song.scss');
+require('../styles/components/Song.scss');
 
 class Song extends React.Component {
   constructor(props) {
@@ -12,17 +12,17 @@ class Song extends React.Component {
       pdfPages: [1],
     };
 
-    this._onClick = this._onClick.bind(this);
-    this._onDocumentComplete = this._onDocumentComplete.bind(this);
+    this.onClick = this.onClick.bind(this);
+    this.onDocumentComplete = this.onDocumentComplete.bind(this);
   }
 
-  _onClick() {
+  onClick() {
     if (!this.props.expanded && this.props.onClick) {
       this.props.onClick(this.props.slug);
     }
   }
 
-  _onDocumentComplete(pages) {
+  onDocumentComplete(pages) {
     const pagesArr = [];
     for (let i = 1; i < pages + 1; i++) {
       pagesArr.push(i);
@@ -40,7 +40,7 @@ class Song extends React.Component {
 
     const chordRegex = new RegExp('([A-G][b#]?[m]?((6\\/9|11|13|[679]))?' +
       '((dim|dom|aug|sus|min|maj|add|no|m|M|-|\\+)(11|13|15|[23456789])?){0,2}' +
-      '([b#\\-\\+][59]){0,2}(\\/[A-G][b#]?)?)(?=(\s|-|\/|\\\\|\\)|$))');
+      '([b#\\-\\+][59]){0,2}(\\/[A-G][b#]?)?)(?=(-|/|\\\\|\\)|$))');
     if (line.match(chordRegex)) return true;
 
     return false;
@@ -83,7 +83,7 @@ class Song extends React.Component {
     ) : null;
     const className = `song${this.props.expanded ? ' song--expanded' : ''}`;
     return (
-      <article className={className} onClick={this._onClick}>
+      <article className={className} onClick={this.onClick}>
         <header className="song__header">
           {back}
           <h1 className="song__header__title">

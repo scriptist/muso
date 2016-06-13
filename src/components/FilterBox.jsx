@@ -1,6 +1,6 @@
 import React from 'react';
 
-require('styles/components/FilterBox.scss');
+require('../styles/components/FilterBox.scss');
 
 class FilterBox extends React.Component {
   constructor(props) {

@@ -1,0 +1,10 @@
+@import "../settings";
+
+.refreshbutton {
+  background-color: $color-gray-light;
+  border: 1px solid darken($color-gray-light, 20%);
+  color: #444;
+  display: block;
+  margin: 50px auto 0;
+  padding: 0.4em 1em;
+}

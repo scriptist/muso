@@ -1,6 +1,6 @@
 import React from 'react';
 
-require('styles/components/Loader.scss');
+require('../styles/components/Loader.scss');
 
 class Loader extends React.Component {
   render() {
@@ -12,10 +12,8 @@ class Loader extends React.Component {
   }
 }
 
-// Uncomment properties you need
 Loader.propTypes = {
   children: React.PropTypes.element,
 };
-// FilterBox.defaultProps = {};
 
 export default Loader;

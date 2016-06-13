@@ -1,6 +1,6 @@
 import React from 'react';
 
-require('styles/components/BackButton.scss');
+require('../styles/components/BackButton.scss');
 
 class BackButton extends React.Component {
   render() {
