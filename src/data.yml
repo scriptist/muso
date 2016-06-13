@@ -451,6 +451,24 @@
   pdf: Landed.pdf
 
 -
+  slug: annie-waits
+  title: Annie Waits
+  artist: Ben Folds
+  pdf: Annie-Waits.pdf
+
+-
+  slug: fred-jones-part-2
+  title: Fred Jones Part 2
+  artist: Ben Folds
+  pdf: Fred-Jones-Part-2.pdf
+
+-
+  slug: the-luckiest
+  title: The Luckiest
+  artist: Ben Folds
+  pdf: The-Luckiest.pdf
+
+-
   slug: you-dont-know-me
   title: You Don't Know Me
   artist: Ben Folds
@@ -923,6 +941,104 @@
         D         Em             G             D
     How wonderful life is, while you're in the world
 
+
+-
+  slug: goodbye-yellow-brick-road
+  title: Goodbye Yellow Brick Road
+  artist: Elton John
+  chords: |
+    [INTRO]
+
+    F C Dm C Bb C F (Hold last F for a whole bar)
+
+
+    [VERSE 1]
+
+    Gm                      C
+    When are you gonna come down
+    F                     Bb
+    When are you going to land
+      Gm                        C
+    I should have stayed on the farm, should have
+    F                  F
+    Listened to my old man
+        Gm                        C
+    You know you can't hold me forever
+      F                   Bb
+    I didn't sign up with you
+        Eb                     C
+    I'm not a present for your friends to open
+         F                     F
+    This boy's too young to be singing
+        Db  Eb   Ab  Db   Bbm  C7
+    The blues... Ah...... Ah....
+
+
+    [CHORUS]
+
+       F                    A7
+    So Goodbye yellow brick road
+              Bb              F
+    Where the dogs of society howl
+        D7                     Gm
+    You can't plant me in your penthouse
+        C                F
+    I'm going back to my plow
+    Dm                      A
+    Back to the howling old owl in the woods
+    Bb                      Db
+    Hunting the horny black toad
+    Db Eb   F         C/E      Dm       Dm/C
+    Oh I've finally decided my future lies
+       Bb      C            Db  Eb
+    Beyond the yellow brick road ...
+    Ab  Db  Bbm  C  F
+    Ah..... Ah......
+
+
+    [VERSE 2]
+
+    Gm                       C
+    What do you think you'll do then?
+      F                      Bb
+    I bet to shoot down your plane
+          Gm                   C
+    It'll take you a couple of vodka and tonics
+       F                     F
+    To set you on your feet again
+    Gm                   C
+    Maybe you'll get a replacement
+            F                    Bb
+    There's plenty like me to be found
+    Eb           C
+    Mongrels who ain't got a penny
+    F                         F
+    Sniffing for tidbits like you
+           Db  Eb    Ab  Db  Bbm  C7
+    On the ground... Ah....  Ah....
+
+
+    [CHORUS]
+
+       F                    A7
+    So Goodbye yellow brick road
+              Bb              F
+    Where the dogs of society howl
+        D7                     Gm
+    You can't plant me in your penthouse
+        C                F
+    I'm going back to my plow
+    Dm                      A
+    Back to the howling old owl in the woods
+    Bb                      Db
+    Hunting the horny black toad
+    Db Eb   F         C/E      Dm       Dm/C
+    Oh I've finally decided my future lies
+       Bb      C            Db  Eb
+    Beyond the yellow brick road ...
+    Ab  Db  Bbm  C  F
+    Ah..... Ah......
+
 -
   slug: waterloo
   title: Waterloo
@@ -1147,7 +1263,6 @@
     How you suffered for you sanity     How you tried to set them free
                                        A7               Am7   D7              G
     They would not listen they're not  listening still     perhaps they never will
-
 
 # -
 #   slug:
