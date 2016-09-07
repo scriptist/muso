@@ -7,10 +7,13 @@ import App from './components/App';
 import SongPage from './components/SongPage';
 import songs from './songs.js';
 
+function scrollToTop() {
+  window.scrollTo(0, 0);
+}
+
 // Render the main component into the dom
-ReactDOM.render(<App />, document.getElementById('app'));
 ReactDOM.render((
-  <Router history={hashHistory}>
+  <Router history={hashHistory} onUpdate={scrollToTop}>
     <Route path="/" component={App}>
       {songs.map(song => (
         <Route key={song.slug} path={song.slug} component={SongPage} song={song} />
