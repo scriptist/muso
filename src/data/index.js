@@ -8,6 +8,7 @@ import dontStopBelieving from './dont-stop-believing.txt';
 import enormousPenis from './enormous-penis.txt';
 import fourChordsSong from './four-chords-song.txt';
 import fredJonesPart2 from './fred-jones-part-2.txt';
+import friendLikeMe from './friend-like-me.txt';
 import goodbyeYellowBrickRoad from './goodbye-yellow-brick-road.txt';
 import landed from './landed.txt';
 import letItGo from './let-it-go.txt';
@@ -33,6 +34,7 @@ export default {
   'enormous-penis': enormousPenis,
   'four-chords-song': fourChordsSong,
   'fred-jones-part-2': fredJonesPart2,
+  'friend-like-me': friendLikeMe,
   'goodbye-yellow-brick-road': goodbyeYellowBrickRoad,
   'landed': landed,
   'let-it-go': letItGo,
