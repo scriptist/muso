@@ -1,55 +1,40 @@
 @import "../settings";
 
-.song {
+.song-page {
   margin-left: auto;
   margin-right: auto;
 
-  &:not(.song--expanded) {
-    cursor: pointer;
-    max-width: $menu-width;
-
-    &:hover {
-      background: $color-gray-light;
-    }
-  }
-
-  &.song--expanded .song__header {
-    margin-top: -$gutter / 2;
-
-    .song__header__title,
-    .song__header__artist {
-      margin-left: 30px;
-    }
-  }
-
-  .song__header {
+  .song-page__header {
     border-bottom: 1px solid;
+    margin-top: -$gutter / 2;
     padding: $gutter / 2;
     position: relative;
 
-    .song__header__backbutton {
+    .song-page__header__backbutton {
       position: absolute;
       left: 0;
       top: 50%;
       transform: translateY(-50%);
     }
 
-    .song__header__title,
-    .song__header__artist {
+    .song-page__header__title,
+    .song-page__header__artist {
+      margin-left: 30px;
       margin-right: 65px;
     }
 
-    .song__header__title {
+    .song-page__header__title {
       font-weight: inherit;
       font-size: $font-size-large;
-      margin: 0 0 0.4em;
+      margin-bottom: 0.4em;
+      margin-top: 0;
     }
 
-    .song__header__artist {
+    .song-page__header__artist {
       font-size: $font-size-small;
     }
 
-    .song__header__label {
+    .song-page__header__label {
       border: 1px solid;
       font-size: $font-size-tiny;
       padding: 0.2em 0.3em;
@@ -62,24 +47,24 @@
     }
   }
 
-  .song__pdf {
+  .song-page__pdf {
     iframe {
       height: calc(100vh - 100px);
       width: 100%;
     }
   }
 
-  .song__chords {
+  .song-page__chords {
     font-size: $font-size-large;
     line-height: 1.4;
     margin: 0;
     padding: $gutter / 2;
     white-space: pre-wrap;
 
-    .song__chords__line {
+    .song-page__chords__line {
       min-height: 1em;
 
-      &.song__chords__line--chords {
+      &.song-page__chords__line--chords {
         color: #c33;
         line-height: 1;
         margin-top: 0.4em;

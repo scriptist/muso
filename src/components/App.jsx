@@ -1,16 +1,11 @@
-/* eslint-disable no-underscore-dangle */
 require('normalize.css');
 require('../styles/App.scss');
 
 import React from 'react';
-import FilterBox from './FilterBox.jsx';
-import Song from './Song.jsx';
-import data from '../data';
 
-const songs = Object.keys(data).sort().map(slug => Object.assign({}, data[slug], {
-  slug,
-  chords: data[slug].__content.replace(/^(\r?\n|\r)+|(\r?\n|\r)+$/g, ''), // Trim line breaks
-}));
+import FilterBox from './FilterBox.jsx';
+import SongLink from './SongLink.jsx';
+import songs from '../songs.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -18,31 +13,21 @@ class App extends React.Component {
 
     this.state = {
       filterText: '',
-      selectedSong: null,
     };
 
     this.onBackClick = this.onBackClick.bind(this);
     this.onFilterChange = this.onFilterChange.bind(this);
-    this.onSongClick = this.onSongClick.bind(this);
   }
 
   onBackClick() {
     this.setState({
       filterText: '',
-      selectedSong: null,
     });
   }
 
   onFilterChange(text) {
     this.setState({
       filterText: text,
-    });
-  }
-
-  onSongClick(slug) {
-    this.setState({
-      filterText: '',
-      selectedSong: slug,
     });
   }
 
@@ -81,7 +66,12 @@ class App extends React.Component {
 
     return filteredSongs;
   }
+
   render() {
+    if (this.props.children) {
+      return this.props.children;
+    }
+
     const filterBox = this.state.selectedSong ? null : (
       <FilterBox onChange={this.onFilterChange} />
     );
@@ -92,9 +82,8 @@ class App extends React.Component {
       <div>
         {filterBox}
         {filteredSongs.map((song) => (
-          <Song
+          <SongLink
             key={song.slug}
-            onClick={this.onSongClick}
             onBackClick={this.onBackClick}
             expanded={!!this.state.selectedSong}
             {...song}
@@ -104,5 +93,9 @@ class App extends React.Component {
     );
   }
 }
+
+App.propTypes = {
+  children: React.PropTypes.node,
+};
 
 export default App;
