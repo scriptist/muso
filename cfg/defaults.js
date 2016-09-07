@@ -4,8 +4,6 @@
  * Using [].push will add to the base array, so a require will alter
  * the base array output.
  */
-'use strict';
-
 const path = require('path');
 const srcPath = path.join(__dirname, '/../src');
 const dfltPort = 8000;
@@ -35,14 +33,6 @@ function getDefaultModules() {
       {
         test: /\.scss/,
         loader: 'style-loader!css-loader!sass-loader?outputStyle=expanded',
-      },
-      {
-        test: /\.less/,
-        loader: 'style-loader!css-loader!less-loader',
-      },
-      {
-        test: /\.styl/,
-        loader: 'style-loader!css-loader!stylus-loader',
       },
       {
         test: /\.(png|jpg|gif|woff|woff2)$/,

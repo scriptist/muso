@@ -1,6 +1,3 @@
-/* eslint-disable strict */
-'use strict';
-
 const path = require('path');
 const args = require('minimist')(process.argv.slice(2));
 const baseConfig = require(path.join(__dirname, 'cfg/base'));
