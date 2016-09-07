@@ -18,6 +18,7 @@ import skullcrusherMountain from './skullcrusher-mountain.txt';
 import songForPhilDaoust from './song-for-phil-daoust.txt';
 import spaceOddity from './space-oddity.txt';
 import theLuckiest from './the-luckiest.txt';
+import vincent from './vincent.txt';
 import waterloo from './waterloo.txt';
 import youDontKnowMe from './you-dont-know-me.txt';
 import yourSong from './your-song.txt';
@@ -42,6 +43,7 @@ export default {
   'song-for-phil-daoust': songForPhilDaoust,
   'space-oddity': spaceOddity,
   'the-luckiest': theLuckiest,
+  'vincent': vincent,
   'waterloo': waterloo,
   'you-dont-know-me': youDontKnowMe,
   'your-song': yourSong,
