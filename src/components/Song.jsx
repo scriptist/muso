@@ -43,6 +43,9 @@ class Song extends React.Component {
       '([b#\\-\\+][59]){0,2}(\\/[A-G][b#]?)?)(?=(-|/|\\\\|\\)|$))');
     if (line.match(chordRegex)) return true;
 
+    const lineRegex = /^^([A-G][b#]?m?7?\s*)*$/;
+    if (line.match(lineRegex)) return true;
+
     return false;
   }
 
