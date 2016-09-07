@@ -1,20 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 require('../styles/components/BackButton.scss');
 
 class BackButton extends React.Component {
   render() {
     return (
-      <button className={`backbutton ${this.props.className}`} onClick={this.props.onClick}>
+      <Link to="/" className={`backbutton ${this.props.className}`}>
         Back
-      </button>
+      </Link>
     );
   }
 }
 
 BackButton.propTypes = {
   className: React.PropTypes.string,
-  onClick: React.PropTypes.func,
 };
 
 export default BackButton;
