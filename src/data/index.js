@@ -10,6 +10,7 @@ import fourChordsSong from './four-chords-song.txt';
 import fredJonesPart2 from './fred-jones-part-2.txt';
 import friendLikeMe from './friend-like-me.txt';
 import goodbyeYellowBrickRoad from './goodbye-yellow-brick-road.txt';
+import iDontLikeMondays from './i-dont-like-mondays.txt';
 import landed from './landed.txt';
 import letItGo from './let-it-go.txt';
 import majesty from './majesty.txt';
@@ -36,6 +37,7 @@ export default {
   'fred-jones-part-2': fredJonesPart2,
   'friend-like-me': friendLikeMe,
   'goodbye-yellow-brick-road': goodbyeYellowBrickRoad,
+  'i-dont-like-mondays': iDontLikeMondays,
   'landed': landed,
   'let-it-go': letItGo,
   'majesty': majesty,
