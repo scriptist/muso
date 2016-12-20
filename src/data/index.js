@@ -1,6 +1,7 @@
 /* eslint-disable quote-props,object-shorthand */
 
 import aWholeNewWorld from './a-whole-new-world.txt';
+import allIWantForChristmasIsYou from './all-i-want-for-christmas-is-you.txt';
 import annieWaits from './annie-waits.txt';
 import bard from './bard.txt';
 import darkSide from './dark-side.txt';
@@ -31,6 +32,7 @@ import youveGotAFriendInMe from './youve-got-a-friend-in-me.txt';
 
 export default {
   'a-whole-new-world': aWholeNewWorld,
+  'all-i-want-for-christmas-is-you': allIWantForChristmasIsYou,
   'annie-waits': annieWaits,
   'bard': bard,
   'dark-side': darkSide,
