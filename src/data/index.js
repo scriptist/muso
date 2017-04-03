@@ -27,6 +27,7 @@ import totalEclipseOfTheHeart from './total-eclipse-of-the-heart.txt';
 import vincent from './vincent.txt';
 import waterloo from './waterloo.txt';
 import youDontKnowMe from './you-dont-know-me.txt';
+import youllBeBack from './youll-be-back.txt';
 import yourSong from './your-song.txt';
 import youveGotAFriendInMe from './youve-got-a-friend-in-me.txt';
 
@@ -58,6 +59,7 @@ export default {
   'vincent': vincent,
   'waterloo': waterloo,
   'you-dont-know-me': youDontKnowMe,
+  'youll-be-back': youllBeBack,
   'your-song': yourSong,
   'youve-got-a-friend-in-me': youveGotAFriendInMe,
 };
