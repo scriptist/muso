@@ -30,9 +30,17 @@ class SongPage extends React.Component {
       );
     }
 
+    if (song.type === 'lyrics') {
+      return (
+        <div className="song-page__lyrics">
+          {song.data}
+        </div>
+      );
+    }
+
     return (
       <pre className="song-page__chords">
-        {song.chords.split('\n').map((line, i) => {
+        {song.data.split('\n').map((line, i) => {
           const className = `song-page__chords__line${
             this.testLine(line)
             ? ' song-page__chords__line--chords'

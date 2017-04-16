@@ -54,6 +54,14 @@
     }
   }
 
+  .song-page__lyrics {
+    font-size: $font-size-large;
+    line-height: 1.6;
+    margin: 0;
+    padding: $gutter / 2;
+    white-space: pre-wrap;
+  }
+
   .song-page__chords {
     font-size: $font-size-large;
     line-height: 1.4;

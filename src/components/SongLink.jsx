@@ -4,6 +4,13 @@ import { Link } from 'react-router';
 require('../styles/components/SongLink.scss');
 
 class SongLink extends React.Component {
+  type() {
+    if (!this.props) return '';
+    if (this.props.pdf) return 'PDF';
+    if (this.props.type === 'lyrics') return 'Lyrics';
+    return 'Chords';
+  }
+
   render() {
     return (
       <Link to={this.props.slug} className="song-link">
@@ -15,7 +22,7 @@ class SongLink extends React.Component {
             {this.props.artist}
           </div>
           <div className="song-link__header__label">
-            {this.props.chords ? 'Chords' : 'PDF'}
+            {this.type()}
           </div>
         </header>
       </Link>
@@ -28,6 +35,7 @@ SongLink.propTypes = {
   title: React.PropTypes.string.isRequired,
   artist: React.PropTypes.string,
   chords: React.PropTypes.string,
+  type: React.PropTypes.string,
   pdf: React.PropTypes.string,
   expanded: React.PropTypes.bool,
   onClick: React.PropTypes.func,
