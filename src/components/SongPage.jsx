@@ -6,6 +6,7 @@ require('../styles/components/SongPage.scss');
 
 class SongPage extends React.Component {
   testLine(line) {
+    if (!line) return false;
     if (line.match(/^\s/)) return true;
     if (line.match(/^\|:/)) return true;
     if (line.match(/^\| ?[A-G][b#]?[m]?[679]? /)) return true;
