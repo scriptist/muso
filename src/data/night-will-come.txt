@@ -31,7 +31,7 @@ Ab/C           Db
 On towards the sinking sun
 Bbm7              Ab/C
 Turn a blind eye, fight or run
-Bbm7             C          Fm
+Bbdim7           C          Fm
 Rest assured the night will come
 
 Fm
@@ -58,7 +58,7 @@ Ab/C           Db
 On towards the sinking sun
 Bbm7              Ab/C
 Turn a blind eye, fight or run
-Bbm7             C          Fm
+Bbdim7           C          Fm
 Rest assured the night will come
 
 Fm
@@ -86,9 +86,9 @@ Ab/C           Db
 On towards the sinking sun
 Bbm7              Ab/C
 Turn a blind eye, fight or run
-Bbm7             C          Fm
+Bbdim7           C          Fm
 Rest assured the night will come
-Bbm7             C          Fm     Fm/E
+Bbdim7           C          Fm     Fm/E
 Rest assured the night will come
 
 Db                             Ab/C
