@@ -1,6 +1,6 @@
 ---
 title: Night Will Come
-artist: Tim Minchin (Matilda)
+artist: Tim Minchin (Groundhog Day)
 ---
 
 Intro:
@@ -55,7 +55,7 @@ Sing hallelujah
 Ab            Bbm7
 On and on and on you stumble
 Ab/C           Db
-On towards the sinking sun
+On towards the cooling sun
 Bbm7              Ab/C
 Turn a blind eye, fight or run
 Bbdim7           C          Fm
@@ -83,7 +83,7 @@ Will not dissuade her
 Ab            Bbm7
 On and on and on you stumble
 Ab/C           Db
-On towards the sinking sun
+On towards the fading sun
 Bbm7              Ab/C
 Turn a blind eye, fight or run
 Bbdim7           C          Fm
