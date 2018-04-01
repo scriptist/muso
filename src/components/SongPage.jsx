@@ -7,9 +7,9 @@ require('../styles/components/SongPage.scss');
 class SongPage extends React.Component {
   testLine(line) {
     if (!line) return false;
-    if (line.match(/^\s/)) return true;
+    if (line.match(/^\s+[A-G][b#]?(m|maj)?[679]?\s/)) return true;
     if (line.match(/^\|:/)) return true;
-    if (line.match(/^\| ?[A-G][b#]?[m]?[679]? /)) return true;
+    if (line.match(/^\| ?[A-G][b#]?(m|maj)[679]? /)) return true;
 
     const chordRegex = new RegExp('([A-G][b#]?[m]?((6\\/9|11|13|[679]))?' +
       '((dim|dom|aug|sus|min|maj|add|no|m|M|-|\\+)(11|13|15|[23456789])?){0,2}' +
