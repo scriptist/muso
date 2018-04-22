@@ -4,12 +4,12 @@ artist: Andrew Lloyd Webber
 ---
 
 Dm
-Dm,Db,C,B,Bb,
-Bb,B,C,Db,Dm
-Dm,Db,C,B,Bb,
+Dm Db C B Bb
+Bb B C Db Dm
+Dm Db C B Bb
 
-Ab,Bb
-Bb,B,C,Db,Dm
+Ab Bb
+Bb B C Db Dm
 
 
 (Christine)
@@ -30,10 +30,10 @@ The Phantom of the Opera
    Edim            Dm
 Is there inside my mind
 
-Dm,Db,C,B,Bb,
-Ab,Bb
+Dm Db C B Bb
+Ab Bb
 (Progressive change to Gm)
-D,Db,C,Bb,Gm
+D Db C Bb Gm
 
 
 (Phantom)
@@ -54,7 +54,7 @@ The Phantom of the Opera
    F#dim         Gm
 Is there inside your mind
 
-Gm,F#,F,E,Eb,
+Gm F# F E Eb
 
 (Change to Em)
 D D7
@@ -74,7 +74,7 @@ D             Em
  It's me they hear
 
 
-[Phantom],(Christine)
+[Phantom] (Christine)
                    C
 (Your)/[My] spirit and (my)/[your] voice
 D           Em
@@ -89,33 +89,33 @@ Is there inside [your]/(my) mind
      Em                       C
 He's there the Phantom of the Opera
 (Christine)
-     Em                Em,E,D,Db, C
+     Em                Em E D Db  C
 He's there the Phantom of     the Opera
-Em Em,E,D,Db,C
+Em Em E D Db C
 Ah!.................
-               C,Db,D,F,F#m
-[Sing,my angel of mu-usic]
-F#m F#m,F,E,Eb,D
+               C Db D F F#m
+[Sing my angel of mu-usic]
+F#m F#m F E Eb D
 Ah!................
-         D,Eb,E,F,F#m
+         D Eb E F F#m
 [Sing my a-an-gel]
-F#m F#m,F,E,Eb,D
+F#m F#m F E Eb D
 Ah!.................
-          D,Eb,Gb,A,Abm
+          D Eb Gb A Abm
 [Sing for me]
-Abm A,Gb,F#,F,E
+Abm A Gb F# F E
 Ah!.................
- E,F,F#,Gb,A,Abm
+ E F F# Gb A Abm
 [Sing]
-Abm A,Gb,F#,F,E
+Abm A Gb F# F E
 Ah!...
-               E,F,F#,Gb,A,Abm
-[Sing,my angel]
+               E F F# Gb A Abm
+[Sing my angel]
 Abm
 Ah!...
 Abm
 Ah!...
-             Abm A,Gb,F#,F
+             Abm A Gb F# F
 [SING FOR ME!]
 Abm
 AHHH!
