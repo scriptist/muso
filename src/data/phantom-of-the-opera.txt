@@ -1,0 +1,121 @@
+---
+title: Phantom of the Opera
+artist: Andrew Lloyd Webber
+---
+
+Dm
+Dm,Db,C,B,Bb,
+Bb,B,C,Db,Dm
+Dm,Db,C,B,Bb,
+
+Ab,Bb
+Bb,B,C,Db,Dm
+
+
+(Christine)
+Dm           Gm
+ In sleep he sang to me
+C             Dm  C Dm
+ In dreams he came
+Dm               Gm
+That voice which calls to me
+C              Dm
+ And speaks my name
+         Bb
+And do I dream again
+C          Dmsus4 Dm
+ For now I find
+    Dm
+The Phantom of the Opera
+   Edim            Dm
+Is there inside my mind
+
+Dm,Db,C,B,Bb,
+Ab,Bb
+(Progressive change to Gm)
+D,Db,C,Bb,Gm
+
+
+(Phantom)
+Gm           Cm
+ Sing once a-gain with me
+F            Gm
+ Our strange duet
+Gm        Cm
+ My power over you
+F            Gm
+Grows strong-ger yet
+               Eb
+And though you turn from me
+F             Gm
+ To glance be-hind
+    Gm
+The Phantom of the Opera
+   F#dim         Gm
+Is there inside your mind
+
+Gm,F#,F,E,Eb,
+
+(Change to Em)
+D D7
+
+Em
+
+
+(Christine)
+Em              Am
+ Those who have seen your face
+D             Em
+ Draw back in fear
+Em        Am
+ I am the mask you wear
+(Phantom)
+D             Em
+ It's me they hear
+
+
+[Phantom],(Christine)
+                   C
+(Your)/[My] spirit and (my)/[your] voice
+D           Em
+ In one com-bined
+    Em
+The Phantom of the Opera
+   Dbdim                    Em
+Is there inside [your]/(my) mind
+
+
+(backup)
+     Em                       C
+He's there the Phantom of the Opera
+(Christine)
+     Em                Em,E,D,Db, C
+He's there the Phantom of     the Opera
+Em Em,E,D,Db,C
+Ah!.................
+               C,Db,D,F,F#m
+[Sing,my angel of mu-usic]
+F#m F#m,F,E,Eb,D
+Ah!................
+         D,Eb,E,F,F#m
+[Sing my a-an-gel]
+F#m F#m,F,E,Eb,D
+Ah!.................
+          D,Eb,Gb,A,Abm
+[Sing for me]
+Abm A,Gb,F#,F,E
+Ah!.................
+ E,F,F#,Gb,A,Abm
+[Sing]
+Abm A,Gb,F#,F,E
+Ah!...
+               E,F,F#,Gb,A,Abm
+[Sing,my angel]
+Abm
+Ah!...
+Abm
+Ah!...
+             Abm A,Gb,F#,F
+[SING FOR ME!]
+Abm
+AHHH!
