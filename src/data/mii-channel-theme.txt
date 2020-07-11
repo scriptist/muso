@@ -1,0 +1,5 @@
+---
+title: Mii Channel Theme
+artist: Nintendo
+pdf: Mii-Channel-Theme.pdf
+---
