@@ -14,21 +14,6 @@ class App extends React.Component {
     this.state = {
       filterText: '',
     };
-
-    this.onBackClick = this.onBackClick.bind(this);
-    this.onFilterChange = this.onFilterChange.bind(this);
-  }
-
-  onBackClick() {
-    this.setState({
-      filterText: '',
-    });
-  }
-
-  onFilterChange(text) {
-    this.setState({
-      filterText: text,
-    });
   }
 
   filterSongs() {
@@ -60,7 +45,6 @@ class App extends React.Component {
     });
 
     if (this.state.selectedSong && filteredSongs.length === 0) {
-      this.onBackClick();
       return this.state.songs;
     }
 
@@ -73,7 +57,10 @@ class App extends React.Component {
     }
 
     const filterBox = this.state.selectedSong ? null : (
-      <FilterBox onChange={this.onFilterChange} />
+      <FilterBox
+        filterText={this.state.filterText}
+        onChange={(filterText) => this.setState({ filterText })}
+      />
     );
 
     const filteredSongs = this.filterSongs();

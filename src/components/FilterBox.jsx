@@ -3,41 +3,35 @@ import React from 'react';
 require('../styles/components/FilterBox.scss');
 
 class FilterBox extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      filterText: '',
-    };
-
-    this._onChange = this._onChange.bind(this);
-  }
-
-  _onChange(e) {
-    const value = e.target.value;
-
-    this.setState({
-      filterText: value,
-    });
-
-    if (this.props.onChange) {
-      this.props.onChange(value);
-    }
-  }
-
   render() {
+    const { filterText, onChange } = this.props;
+
     return (
-      <div className="filterbox">
-        <input type="search" className="filterbox__input" onChange={this._onChange} />
+      <div
+        className={['filterbox', filterText === '' ? 'filterbox--empty' : null]
+          .filter(Boolean)
+          .join(' ')}
+      >
+        <input
+          type="search"
+          className="filterbox__input"
+          onChange={(e) => onChange(e.target.value)}
+          value={filterText}
+        />
+        <button
+          className="filterbox__clear"
+          onClick={() => onChange('')}
+        >
+          &times;
+        </button>
       </div>
     );
   }
 }
 
-// Uncomment properties you need
 FilterBox.propTypes = {
+  filterText: React.PropTypes.string,
   onChange: React.PropTypes.func,
 };
-// FilterBox.defaultProps = {};
 
 export default FilterBox;
