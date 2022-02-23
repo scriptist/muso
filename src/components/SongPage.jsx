@@ -11,6 +11,9 @@ class SongPage extends React.Component {
     if (line.match(/^\|:/)) return true;
     if (line.match(/^\| ?[A-G][b#]?(m|maj)[679]? /)) return true;
 
+    const lettersCount = line.split('').filter((char) => char !== ' ').length;
+    if (lettersCount >= 20) return false;
+
     const chordRegex = new RegExp('([A-G][b#]?[m]?((6\\/9|11|13|[679]))?' +
       '((dim|dom|aug|sus|min|maj|add|no|m|M|-|\\+)(11|13|15|[23456789])?){0,2}' +
       '([b#\\-\\+][59]){0,2}(\\/[A-G][b#]?)?)(?=(-|/|\\\\|\\)|$))');
