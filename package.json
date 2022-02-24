@@ -16,8 +16,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -39,6 +39,10 @@
     ]
   },
   "devDependencies": {
-    "prettier": "2.5.1"
+    "@types/webpack-env": "^1.16.3",
+    "json-loader": "^0.5.7",
+    "prettier": "2.5.1",
+    "react-app-rewired": "^2.2.1",
+    "yaml-frontmatter-loader": "^0.1.0"
   }
 }

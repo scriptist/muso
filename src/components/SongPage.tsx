@@ -1,11 +1,11 @@
 import React from "react";
 
-function App() {
+export default function SongPage() {
   return (
     <div className="App">
       <header className="App-header">
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          Hello
         </p>
         <a
           className="App-link"
@@ -20,4 +20,3 @@ function App() {
   );
 }
 
-export default App;
