@@ -1,6 +1,5 @@
 import React from "react";
 import { css } from "@emotion/css";
-import BackButton from "./BackButton";
 import SongChords from "./SongChords";
 import { SongType } from "../songs";
 import type { Song } from "../songs";
@@ -20,8 +19,9 @@ export default function SongContent({ song }: Props) {
         <div>
           <iframe
             className={styles.pdfIframe}
-            src={`https://docs.google.com/gview?url=http://muso.mikeyberman.com/sheets/${song.pdfUrl}&embedded=true`}
             frameBorder="0"
+            src={`https://docs.google.com/gview?url=http://muso.mikeyberman.com/sheets/${song.pdfUrl}&embedded=true`}
+            title={song.title}
           />
         </div>
       );

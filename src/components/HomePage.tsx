@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { css, cx } from "@emotion/css";
+import { css } from "@emotion/css";
 import FilterBox from "./FilterBox";
 import songs from "../songs";
 import type { Song } from "../songs";
@@ -31,7 +31,6 @@ function useFilteredSongs(filter: string): [string, Song][] {
   }
 
   const filterWords = normalisedFilter.split(" ");
-  const filterFields = ["title", "artist"];
 
   return songsEntries.filter(([, song]) =>
     filterWords.every(

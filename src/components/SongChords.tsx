@@ -1,6 +1,5 @@
 import React from "react";
 import { css, cx } from "@emotion/css";
-import BackButton from "./BackButton";
 import type { Chords } from "../songs";
 
 interface Props {
