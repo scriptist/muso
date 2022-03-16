@@ -20,7 +20,7 @@ export default function SongContent({ song }: Props) {
           <iframe
             className={styles.pdfIframe}
             frameBorder="0"
-            src={`https://docs.google.com/gview?url=http://muso.mikeyberman.com/sheets/${song.pdfUrl}&embedded=true`}
+            src={`https://docs.google.com/gview?url=http://muso.mikeyberman.com${song.pdfUrl}&embedded=true`}
             title={song.title}
           />
         </div>
